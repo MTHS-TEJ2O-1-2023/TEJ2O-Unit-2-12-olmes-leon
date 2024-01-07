@@ -6,37 +6,37 @@
 */
 
 // variables
+let distanceToObject: number = 0
 let neopixelStrip: neopixel.Strip = null
-let distansetoObject: number = 0
-
-
-// cleanup
-basic.clearScreen()
-neopixelStrip=neopixel.create(DigitalPin.P16,4,NeoPixelMode.RGB)
-neopixelStrip.setPixelColor(0,neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(1,neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(2,neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(3,neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.show()
 
 // setup
-basic.showIcon(IconNames.Silly)
+basic.clearScreen()
+neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+neopixelStrip.show()
+basic.showIcon(IconNames.Duck)
 
-// finding distanse from sonar
 input.onButtonPressed(Button.A, function () {
-    basic.clearScreen()
-    distansetoObject = sonar.ping(
-        DigitalPin.P1,
-        DigitalPin.P2,
-        PingUnit.Centimeters
-    )
-    basic.showNumber(distansetoObject)
-    basic.showIcon(IconNames.Duck)
+  basic.clearScreen()
+  distanceToObject = sonar.ping(
+      DigitalPin.P1,
+      DigitalPin.P2,
+      PingUnit.Centimeters
+  )
+  if (distanceToObject < 10) {
+      neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+      neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
+      neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+      neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
+      neopixelStrip.show()
+  } else {
+      neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
+      neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+      neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
+      neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
+      neopixelStrip.show()
+    }
 })
-
-// finding if distanse Level is greater or less then the goal
-if (true) {
-    
-} else {
-    
-}

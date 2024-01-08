@@ -2,7 +2,7 @@
  *
  * Created by: olmes
  * Created on: Oct 2023
- * This program reads light Levels and shows the light Level and lights up a led
+ * This program...
 */
 
 // variables

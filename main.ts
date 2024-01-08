@@ -1,6 +1,6 @@
 /* Copyright (c) 2023 MTHS All rights reserved
  *
- * Created by: Mr. Leon
+ * Created by: olmes
  * Created on: Oct 2023
  * This program reads light Levels and shows the light Level and lights up a led
 */
@@ -22,21 +22,21 @@ basic.showIcon(IconNames.Duck)
 input.onButtonPressed(Button.A, function () {
   basic.clearScreen()
   distanceToObject = sonar.ping(
-      DigitalPin.P1,
-      DigitalPin.P2,
-      PingUnit.Centimeters
+    DigitalPin.P1,
+    DigitalPin.P2,
+    PingUnit.Centimeters
   )
   if (distanceToObject < 10) {
-      neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
-      neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
-      neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
-      neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
-      neopixelStrip.show()
+    neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Red))
+    neopixelStrip.show()
   } else {
-      neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
-      neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
-      neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
-      neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
-      neopixelStrip.show()
-    }
+    neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
+    neopixelStrip.show()
+  }
 })

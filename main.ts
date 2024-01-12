@@ -26,6 +26,7 @@ input.onButtonPressed(Button.A, function () {
     DigitalPin.P2,
     PingUnit.Centimeters
   )
+input.onButtonPressed(Button.A, function () {
   if (distanceToObject < 10) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Red))
     neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Red))
@@ -39,4 +40,5 @@ input.onButtonPressed(Button.A, function () {
     neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
     neopixelStrip.show()
   }
+})
 })
